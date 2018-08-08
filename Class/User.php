@@ -21,7 +21,7 @@ class User {
                     . ")";
         }
 
-        mysqli_query($db->getConnection(), $sql) or die(mysqli_error($db->getConnection()));
+        mysqli_query($db->getConnection(), $query) or die(mysqli_error($db->getConnection()));
         if (mysqli_errno($db->getConnection()) === 0) {
             return true;
         } else {
@@ -31,6 +31,17 @@ class User {
 
     public function updateUser($param) {
         
+    }
+    
+    public function deleteUser($id) {
+        $db = Database::getInstance();
+        $query = "Delete from users where id=$id";
+        mysqli_query($db->getConnection(), $query);
+        if (mysqli_errno($db->getConnection()) === 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getUser($id) {

@@ -1,4 +1,4 @@
-<?php
+<?php 
 //ini_set('display_errors','0');
 //error_reporting(0);
 
@@ -46,8 +46,8 @@ $mysqlQueryObj = mysqli_query($db->getConnection(), "SELECT * from users");
                 <td><?php echo $result['lname']; ?></td>
                 <td><?php echo $result['usename']; ?></td>
                 <td><?php echo $result['gender']; ?></td>
-                <td><input type="button" value="Edit" name="edit" onclick="window.location='addUser.php?id=<?php echo $result['id']; ?>'"></td>
-                <td><input type="button" value="Delete" name="delete" onclick="confirm('Do you really want to delete this ?')"></td>
+                <td><a name="edit" onclick="javascript:void(0);" href='addUser.php?id=<?php echo $result['id']; ?>'>Edit</a></td>
+                <td><a name="delete" onclick="confirm('Do you really want to delete this ?')" href='deleteUser.php?id=<?php echo $result['id']; ?>'>Delete</a></td>
             </tr>
             <?php endwhile; ?>
         </table>
